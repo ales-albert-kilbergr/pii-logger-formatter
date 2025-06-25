@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "name": "@kilbergr/pii-logger-formatter",
+  "description": "Redact PII fields from the logs using a list of keys",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "logging",
+    "PII",
+    "formatter"
+  ],
+  "author": "Kilbergr",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
