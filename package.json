@@ -2,11 +2,26 @@
   "version": "0.1.0",
   "name": "@kilbergr/pii-logger-formatter",
   "description": "Redact PII fields from the logs using a list of keys",
-  "main": "dist/index.js",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsc",
-    "test": "jest"
+    "build": "npm run build:types && npm run build:bundle",
+    "build:types": "tsc --project tsconfig.build.json",
+    "build:bundle": "vite build",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "keywords": [
     "logging",
@@ -16,6 +31,9 @@
   "author": "Kilbergr",
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^5.8.3"
+    "@types/node": "^22.10.2",
+    "typescript": "^5.8.3",
+    "vite": "^6.0.7",
+    "vite-plugin-dts": "^4.4.0"
   }
 }
